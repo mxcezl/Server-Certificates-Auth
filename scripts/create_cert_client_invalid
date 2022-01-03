@@ -1,0 +1,3 @@
+openssl req -newkey rsa:4096 -keyout pierre_key.pem -out pierre_csr.pem -nodes -days 365 -subj "/CN=Pierre"
+openssl x509 -req -in pierre_csr.pem -signkey pierre_key.pem -out pierre_cert.pem -days 365
+openssl pkcs12 -export -in pierre_cert.pem -inkey pierre_key.pem -out pierre.p12

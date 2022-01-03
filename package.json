@@ -1,0 +1,15 @@
+{
+  "name": "cert_web_app",
+  "version": "1.0.0",
+  "description": "Simple web app using certificates to auth clients.",
+  "author": "Maxence ZOLNIERUCK - Yann MADRZYK - Mathis FOSSEY",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0"
+  }
+}
