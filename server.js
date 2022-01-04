@@ -11,13 +11,14 @@ const HOST = 'localhost';
 // openssl req -x509 -newkey rsa:4096 -keyout server_key.pem -out server_cert.pem -nodes -days 365 -subj "/CN=localhost/O=INSA"
 // Creation de server_key.pem et de server_cert.pem
 const opts = {
-    key: fs.readFileSync('/keys/server/server_key.pem'),
-    cert: fs.readFileSync('/keys/server/server_cert.pem'),
+    key: fs.readFileSync('./keys/server/server_key.pem'),
+    cert: fs.readFileSync('./keys/server/server_cert.pem'),
     requestCert: true,
     rejectUnauthorized: false,
-    ca: [
-        fs.readFileSync('/keys/server/server_cert.pem')
-    ]
+    ca: fs.readFileSync('./keys/server/server_cert.pem'),
+	//crl: [
+	//	fs.readFileSync('./keys/server/server_cert.pem')
+	//]
 }
 // Creation de cle et certificat pour un utilisateur
 // openssl req -newkey rsa:4096 -keyout maxence_key.pem -out maxence_csr.pem -nodes -days 365 -subj "/CN=Maxence"
