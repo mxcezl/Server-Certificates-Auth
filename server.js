@@ -11,12 +11,12 @@ const HOST = 'localhost';
 // openssl req -x509 -newkey rsa:4096 -keyout server_key.pem -out server_cert.pem -nodes -days 365 -subj "/CN=localhost/O=INSA"
 // Creation de server_key.pem et de server_cert.pem
 const opts = {
-    key: fs.readFileSync('/keys/server/server_key.pem'),
-    cert: fs.readFileSync('/keys/server/server_cert.pem'),
+    key: fs.readFileSync('./keys/server/server_key.pem'),
+    cert: fs.readFileSync('./keys/server/server_cert.pem'),
     requestCert: true,
     rejectUnauthorized: false,
     ca: [
-        fs.readFileSync('/keys/server/server_cert.pem')
+        fs.readFileSync('./keys/server/server_cert.pem')
     ]
 }
 // Creation de cle et certificat pour un utilisateur
@@ -29,6 +29,15 @@ const opts = {
 const app = express();
 app.get('/', (req, res) => {
     res.send('<a href="authenticate">Log in using client certificate</a>')
+});
+
+app.get('/certificate', (req, res) => {
+	const file = `./keys/server/server_cert.pem`;
+	res.download(file, (err) => {
+		if(err){
+			console.log(err);
+		}
+	});
 });
 
 app.get('/authenticate', (req, res) => {
