@@ -15,16 +15,10 @@ const opts = {
     cert: fs.readFileSync('./keys/server/server_cert.pem'),
     requestCert: true,
     rejectUnauthorized: false,
-<<<<<<< HEAD
     ca: fs.readFileSync('./keys/server/server_cert.pem'),
 	//crl: [
 	//	fs.readFileSync('./keys/server/server_cert.pem')
 	//]
-=======
-    ca: [
-        fs.readFileSync('./keys/server/server_cert.pem')
-    ]
->>>>>>> 731d76f61d88832320c4d207e34361f1ca168583
 }
 // Creation de cle et certificat pour un utilisateur
 // openssl req -newkey rsa:4096 -keyout maxence_key.pem -out maxence_csr.pem -nodes -days 365 -subj "/CN=Maxence"
