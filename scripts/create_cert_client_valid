@@ -1,3 +1,0 @@
-openssl req -newkey rsa:4096 -keyout maxence_key.pem -out maxence_csr.pem -nodes -days 365 -subj "/CN=Maxence"
-openssl x509 -req -in maxence_csr.pem -CA server_cert.pem -CAkey server_key.pem -out maxence_cert.pem -set_serial 01 -days 365
-openssl pkcs12 -export -clcerts -in maxence_cert.pem -inkey maxence_key.pem -out maxence.p12

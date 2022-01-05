@@ -8,8 +8,8 @@ COPY ["package.json","package-lock.json","./"]
 RUN npm install --production
 COPY . .
 
-WORKDIR /keys/server
-RUN /scripts/create_cert_server
+WORKDIR /scripts
+RUN ./create_cert_server.sh
 
 WORKDIR /
 CMD ["node","server.js"]
