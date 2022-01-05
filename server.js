@@ -51,11 +51,12 @@ app.get('/key', (req, res) => {
 });
 
 app.get('/authenticate', (req, res) => {
-	const cert = req.connection.getPeerCertificate()
+	const cert = req.socket.getPeerCertificate()
 
-	if (req.client.authorized) {
+	if (req.client.authorized && cert.subject) {
+		console.log(cert)
 		res.send(`Hello ${cert.subject.CN}, your certificate was issued by ${cert.issuer.CN}!`)
-	} else if (cert?.subject?.CN) {
+	} else if (cert.subject) {
 		res.status(403)
 		   .send(`Sorry ${cert.subject.CN}, certificates from ${cert.issuer.CN} are not welcome here.`)
 	} else {
@@ -63,6 +64,11 @@ app.get('/authenticate', (req, res) => {
 		   .send(`Sorry, but you need to provide a client certificate to continue.`)
 	}
 })
+app.use((req, res, next) => {
+	res.set('Cache-Control', 'no-store')
+	next()
+  })
+app.set('etag', false)  
 
 https.createServer(opts, app).listen(PORT);
 console.log(`Running on https://${HOST}:${PORT}`);
