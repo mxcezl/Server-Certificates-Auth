@@ -3,6 +3,7 @@
 const express = require('express');
 const fs = require('fs')
 const https = require('https')
+const nocache = require('nocache')
 
 // Constants
 const PORT = 4848;
@@ -28,6 +29,8 @@ const opts = {
 
 // App
 const app = express();
+app.use(nocache())
+app.set('etag', false)  
 app.get('/', (req, res) => {
     res.send('<a href="authenticate">Log in using client certificate</a>')
 });
@@ -64,11 +67,6 @@ app.get('/authenticate', (req, res) => {
 		   .send(`Sorry, but you need to provide a client certificate to continue.`)
 	}
 })
-app.use((req, res, next) => {
-	res.set('Cache-Control', 'no-store')
-	next()
-  })
-app.set('etag', false)  
 
 https.createServer(opts, app).listen(PORT);
 console.log(`Running on https://${HOST}:${PORT}`);
