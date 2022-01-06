@@ -123,7 +123,8 @@ Date: Thu, 06 Jan 2022 21:27:18 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-Sorry, but you need to provide a client certificate to continue.```
+Sorry, but you need to provide a client certificate to continue.
+```
 
 **Avec certificat**
 > curl https://localhost:4848/authenticate --insecure --cert certificat.p12 --cert-type 12 -i
