@@ -172,3 +172,5 @@ Si votre navigateur ne vous demande pas de sélectionner votre certificat et vou
 
 Dans ce cas, ouvrez une fenêtre en navigation privée et ressaisissez l'URL.
 Si le problème persiste, retournez dans vos paramètres de certificats et dans l'onglet "Décisions", supprimez toutes les entrées et essayez de vider votre cache, puis réessayez.
+
+[![N|Solid](https://i.imgur.com/x4LqjlH.png)](https://i.imgur.com/x4LqjlH.png)
