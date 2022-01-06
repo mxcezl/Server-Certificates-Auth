@@ -123,7 +123,7 @@ Date: Thu, 06 Jan 2022 21:27:18 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-Sorry, but you need to provide a client certificate to continue.
+<mark>Sorry, but you need to provide a client certificate to continue.</mark>
 ```
 
 **Avec certificat**
