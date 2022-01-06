@@ -107,8 +107,44 @@ Les trois premiers fichiers ne sont pas à utiliser par l'utilisateur directemen
 **Sans certificat**
 > curl https://localhost:4848/authenticate --insecure -i
 
+```
+$ curl https://localhost:4848/authenticate --insecure -i
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    64  100    64    0     0   3118      0 --:--:-- --:--:-- --:--:--  3368HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+Surrogate-Control: no-store
+Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html; charset=utf-8
+Content-Length: 64
+Date: Thu, 06 Jan 2022 21:27:18 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+Sorry, but you need to provide a client certificate to continue.```
+
 **Avec certificat**
 > curl https://localhost:4848/authenticate --insecure --cert certificat.p12 --cert-type 12 -i
+
+```$ curl https://localhost:4848/authenticate --insecure -i --cert ./keys/client/yann/yann.p12 --cert-type p12
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    48  100    48    0     0   1813      0 --:--:-- --:--:-- --:--:--  1920HTTP/1.1 200 OK
+X-Powered-By: Express
+Surrogate-Control: no-store
+Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html; charset=utf-8
+Content-Length: 48
+Date: Thu, 06 Jan 2022 21:30:28 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+Hello yann, your certificate was issued by INSA!
+```
 
 ## Avec un navigateur
 
