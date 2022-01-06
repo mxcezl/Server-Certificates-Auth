@@ -127,7 +127,7 @@ Sorry, but you need to provide a client certificate to continue.
 ```
 
 **Avec certificat**
-> curl https://localhost:4848/authenticate --insecure --cert certificat.p12 --cert-type 12 -i
+> curl https://localhost:4848/authenticate --insecure --cert certificat.p12 --cert-type p12 -i
 
 ```
 $ curl https://localhost:4848/authenticate --insecure -i --cert ./keys/client/yann/yann.p12 --cert-type p12
