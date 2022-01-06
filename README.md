@@ -152,13 +152,20 @@ Hello yann, your certificate was issued by INSA!
 Pour ajouter un certificat dans votre navigateur, il faut aller dans les paramètres, ensuite dans les paramètres de certificat. Désactivez l'interrogation au répondeur OCSP. Ajoutez un certificat dans l'onglet "Vos certificats" ou "Certificats utilisateurs".
 Entrez le mot de passe que vous avez définit pour le certificat lors de sa création.
 
-[![N|Solid](https://i.imgur.com/TloEHoR.png)](https://i.imgur.com/TloEHoR.png)]
+<center>
+[![N|Solid](https://i.imgur.com/TloEHoR.png)](https://i.imgur.com/TloEHoR.png)
+</center>
 
 Vous pouvez ensuite visiter https://localhost:4848/authenticate et le navigateur vous demandera de sélectionner un certificats parmi ceux enregistrés.
-
-[![N|Solid](https://i.imgur.com/CZFDA5D.png)](https://i.imgur.com/CZFDA5D.png)]
+<center>
+[![N|Solid](https://i.imgur.com/CZFDA5D.png)](https://i.imgur.com/CZFDA5D.png)
+</center>
 
 Choisissez celui récemment ajouté et cliquez Entrer.
+
+<center>
+[![N|Solid](https://i.imgur.com/g7xoc0t.png)](https://i.imgur.com/g7xoc0t.png)
+</center>
 
 Vous devrez avoir une réponse semblable à :
 > Hello VOTRE_NOM, your certificate was issued by ORGANISATION!
