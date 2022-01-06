@@ -23,6 +23,7 @@ Ensuite vérifiez l'installation avec la commande :
 
 Il est également recommandé d'installer NPM qui est un gestionnaire de paquets pour Node.js :
 > **sudo apt install npm**  
+
 > **npm -v** or **npm –version**
 
 ## Windows
@@ -31,6 +32,7 @@ Pour l'installation sur Windows, cela est plus concis. Il vous suffit de vous re
 
 En suivant l'utilitaire d'installation, Node.js sera installé sur votre poste avec NPM. Vous pouvez vérifier l'installation de ces deux programmes avec les commandes :
 > **node -v** ou **node --version**
+
 > **npm -v** or **npm –version**
 
 # Solution de déploiement : Node.js
@@ -42,6 +44,7 @@ Pour cela, il faut ouvrir un terminal et aller jusqu'au dossier contenant les fi
 
 Si vous avez une erreur avec une dépendance manquante, entrez la commande suivante :
 > **npm install NOM_DEPENDANCE**
+
 > exemple : **npm install express**
 
 Puis réessayez de lancer le serveur Node.js avec la commande précédente.
@@ -56,6 +59,7 @@ Premièrement il nous faut installer Docker. Si vous vous trouvez sur Windows, v
 
 Sur Linux, tapez les commandes suivantes dans un terminal :
 > **sudo apt-get update**
+
 > **sudo apt-get install docker-ce docker-ce-cli containerd.io**
 
 Vérifiez l'installation de docker, sur Linux ou Windows avec la commande :
@@ -68,6 +72,7 @@ Sur Linux, il faut ensuite démarrer **Docker** avec la commande :
 
 Allez à la racine des fichiers, où se trouve le fichier **DockerFile**. Ensuite tapez la commande :
 > **sudo docker build --tag tp:latest .**
+
 > **sudo docker run -p 4848:4848 tp**
 
 Le serveur va ensuite démarrer et sera exposé via l'URL : https://localhost:4848
@@ -85,6 +90,7 @@ Dans le cas échéant, veuillez vous référer à la section **#Solution de dép
 
 Ces deux scripts permettent de générer deux certificats en prenant tout deux un argument : le nom du client.
 > **./create_cert_client_valid.sh ClientName**
+
 > exemple : **./create_cert_client_valid.sh Maxence**
 
 L’exécution de cette commande va vous générer quatre fichiers :
