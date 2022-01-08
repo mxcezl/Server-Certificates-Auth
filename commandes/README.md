@@ -15,6 +15,12 @@ Toutes les commandes sont à lancer depuis le répertoire principal.
 > **openssl x509 -req -extfile ./server_keys/server.cnf -days 999 -passin "pass:password" -in ./server_keys/server-csr.pem -CA ./ca/ca-crt.pem -CAkey ./ca/ca-key.pem -CAcreateserial -out ./server_keys/server-crt.pem**
 
 # Côté client
+
+Nous allons générer les fichiers nécessaires permetant de simuler deux clients.
+Parmi ces clients :
+- Client 1 : Autorisé à accéder au serveur
+- Client 2 : Son accès est révoqué
+
 ## Génération des certificats
 > **openssl genrsa -out ./clients/client1/client1-key.pem 4096**
 
