@@ -48,7 +48,7 @@ Vous devriez avoir : **client1-crt.pem: OK**
 ## Création de la base de données des certificats révoqués
 
 Si le fichier **ca-database.txt** n'existe pas dans le dossier **cert_database** :
-**touch ./cert_database/ca-database.txt**
+> **touch ./cert_database/ca-database.txt**
 
 ## Révocation d'un certificat
 > **openssl ca -revoke ./clients/client2/client2-crt.pem -keyfile ./ca/ca-key.pem -config openssl.cnf -cert ./ca/ca-crt.pem -passin 'pass:password'**
