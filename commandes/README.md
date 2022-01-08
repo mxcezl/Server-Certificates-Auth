@@ -1,5 +1,21 @@
 # Liste des commandes pour créer les clés, certificats et autres documents pour l'application
 
+- [Liste des commandes pour créer les clés, certificats et autres documents pour l'application](#liste-des-commandes-pour-créer-les-clés-certificats-et-autres-documents-pour-lapplication)
+  - [Côté serveur](#côté-serveur)
+    - [Creation clé et certificat d'autorité](#creation-clé-et-certificat-dautorité)
+    - [Création de la clé privée du serveur](#création-de-la-clé-privée-du-serveur)
+    - [Génération de la demande de signature du certificat (Certificat Signin Request)](#génération-de-la-demande-de-signature-du-certificat-certificat-signin-request)
+    - [Signature de la demande en utilisant le certificat d'autorité](#signature-de-la-demande-en-utilisant-le-certificat-dautorité)
+  - [Côté client](#côté-client)
+    - [Génération des certificats](#génération-des-certificats)
+    - [Création d'une paire de demande de signatures de certificats pour les clients](#création-dune-paire-de-demande-de-signatures-de-certificats-pour-les-clients)
+    - [Signature des certificats clients avec la certificat d'autorité](#signature-des-certificats-clients-avec-la-certificat-dautorité)
+    - [Vérification des certificats](#vérification-des-certificats)
+  - [Création du CRL (Certificate Revoke List)](#création-du-crl-certificate-revoke-list)
+    - [Création de la base de données des certificats révoqués](#création-de-la-base-de-données-des-certificats-révoqués)
+    - [Révocation d'un certificat](#révocation-dun-certificat)
+    - [Mise à jour de la liste des certificats révoqués (CRL)](#mise-à-jour-de-la-liste-des-certificats-révoqués-crl)
+
 Ici vous trouverez toutes les commandes que nous avons utilisé pour générer les certificats, aussi bien côté serveur, que côté client.
 
 La partie sur le serveur est présente uniquement à titre informative et peut être ignorée.
