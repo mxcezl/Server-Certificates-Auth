@@ -41,8 +41,7 @@ Parmi ces clients :
 
 > **openssl verify -CAfile ./ca/ca-crt.pem ./clients/client2/client2-crt.pem**
 
-Vous devriez avoir :
-> client1-crt.pem: OK
+Vous devriez avoir : **client1-crt.pem: OK**
 
 # Création du CRL (Certificate Revoke List)
 
