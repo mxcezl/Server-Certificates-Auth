@@ -11,6 +11,7 @@
     - [Installation de Docker](#installation-de-docker)
     - [Démarrer le serveur avec Docker](#démarrer-le-serveur-avec-docker)
   - [Accès au site](#accès-au-site)
+    - [Création de votre propre client](#création-de-votre-propre-client)
     - [Génération des certificats PKCS#12](#génération-des-certificats-pkcs12)
     - [Via CURL](#via-curl)
       - [Sans certificat](#sans-certificat)
@@ -100,7 +101,15 @@ Veillez à bien utiliser le protocole HTTPS pour y accéder.
 
 ## Accès au site
 
-Le serveur est paramétré de telle sorte que seul les utilisateurs fournissant un certificat x.509 signé avec celui du serveur et la clé du serveur, pourront y accéder. Il vous faut donc générer un certificat pour le client.
+Le serveur est paramétré de telle sorte que seul les utilisateurs fournissant un certificat x.509 valide, c'est a dire signé et non révoqué, soient acceptés. Il vous faut donc générer un certificat pour le client.
+
+Vous avez la possibilité d'utiliser les clients 1, 2 et 3 déjà présents dans le répértoire **./clients**, ou bien de créer vous même votre propre client.
+
+Si vous voulez créer votre client, nous vous invitons à lire la documentation présente dans **/commandes** via ce lien : <https://github.com/mxcezl/TP-Certificat/tree/main/commandes>
+
+### Création de votre propre client
+
+
 
 ### Génération des certificats PKCS#12
 
