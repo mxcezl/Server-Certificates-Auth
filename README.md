@@ -105,11 +105,9 @@ Le serveur est paramétré de telle sorte que seul les utilisateurs fournissant 
 
 Vous avez la possibilité d'utiliser les clients 1, 2 et 3 déjà présents dans le répértoire **./clients**, ou bien de créer vous même votre propre client.
 
-Si vous voulez créer votre client, nous vous invitons à lire la documentation présente dans **/commandes** via ce lien : <https://github.com/mxcezl/TP-Certificat/tree/main/commandes>
-
 ### Création de votre propre client
 
-
+Si vous souhaitez créer votre client, nous vous invitons à lire la documentation présente dans **/commandes** via ce lien : <https://github.com/mxcezl/TP-Certificat/tree/main/commandes>
 
 ### Génération des certificats PKCS#12
 
