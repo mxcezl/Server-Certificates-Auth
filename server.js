@@ -9,8 +9,8 @@ const PORT = 4848;
 const HOST = 'localhost';
 
 const opts = {
-    key: fs.readFileSync('./server-keys/server-key.pem'),
-    cert: fs.readFileSync('./server-keys/server-crt.pem'),
+    key: fs.readFileSync('./server_keys/server-key.pem'),
+    cert: fs.readFileSync('./server_keys/server-crt.pem'),
     ca: fs.readFileSync('./ca/ca-crt.pem'),
 	crl: fs.readFileSync('./ca/ca-crl.pem'),
     requestCert: true,
