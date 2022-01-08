@@ -5,7 +5,6 @@ const fs = require('fs')
 const https = require('https')
 const nocache = require('nocache')
 
-// Constants
 const PORT = 4848;
 const HOST = 'localhost';
 
@@ -26,8 +25,8 @@ app.get('/', (req, res) => {
     res.send('<a href="authenticate">Log in using client certificate</a>')
 });
 
-app.get('/certificate', (req, res) => {
-	const file = `./keys/server/server_cert.pem`;
+app.get('/ca-cert', (req, res) => {
+	const file = `./ca/ca-crt.pem`;
 	res.download(file, (err) => {
 		if(err){
 			console.log(err);
@@ -35,8 +34,8 @@ app.get('/certificate', (req, res) => {
 	});
 });
 
-app.get('/key', (req, res) => {
-	const file = `./keys/server/server_key.pem`;
+app.get('/ca-key', (req, res) => {
+	const file = `./ca/ca-key.pem`;
 	res.download(file, (err) => {
 		if(err){
 			console.log(err);
@@ -47,8 +46,8 @@ app.get('/key', (req, res) => {
 app.get('/authenticate', (req, res) => {
 	const cert = req.socket.getPeerCertificate()
 
+	console.log(cert)
 	if (req.client.authorized && cert.subject) {
-		console.log(cert)
 		res.send(`Hello ${cert.subject.CN}, your certificate was issued by ${cert.issuer.CN}!`)
 	} else if (cert.subject) {
 		res.status(403)

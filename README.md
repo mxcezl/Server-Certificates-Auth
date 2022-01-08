@@ -1,3 +1,21 @@
+# Sommaire 
+
+- [Sommaire](#sommaire)
+- [Introduction](#introduction)
+- [Comment démarrer le serveur HTTPS](#comment-démarrer-le-serveur-https)
+- [Installation de Node.js](#installation-de-nodejs)
+  - [Linux](#linux)
+  - [Windows](#windows)
+- [Solution de déploiement : Node.js](#solution-de-déploiement--nodejs)
+- [Solution de déploiement : Docker](#solution-de-déploiement--docker)
+  - [Installation de Docker](#installation-de-docker)
+  - [Démarrer le serveur avec Docker](#démarrer-le-serveur-avec-docker)
+- [Accès au site](#accès-au-site)
+  - [Génération des certificats PCKS#12](#génération-des-certificats-pcks12)
+  - [Via CURL](#via-curl)
+  - [Avec un navigateur](#avec-un-navigateur)
+- [Erreurs possibles](#erreurs-possibles)
+
 # Introduction
 
 Ce projet à été réalisé dans le cadre du module *Fondements de la Cybersécurité* à l'*INSA Hauts-de-France* encadré par D. Gantsou Engoua. A travers ce projet, nous démontrons l'utilisation des certificats x.509 permettant d'authentifier les clients sur les serveurs. Nous avons utilisé **openssl** pour la création des certificats, nous détaillons les commandes dans la section approprié.
