@@ -11,7 +11,7 @@
     - [Installation de Docker](#installation-de-docker)
     - [Démarrer le serveur avec Docker](#démarrer-le-serveur-avec-docker)
   - [Accès au site](#accès-au-site)
-    - [Génération des certificats PCKS#12](#génération-des-certificats-pcks12)
+    - [Génération des certificats PKCS#12](#génération-des-certificats-pkcs12)
     - [Via CURL](#via-curl)
       - [Sans certificat](#sans-certificat)
       - [Avec certificat](#avec-certificat)
@@ -102,25 +102,18 @@ Veillez à bien utiliser le protocole HTTPS pour y accéder.
 
 Le serveur est paramétré de telle sorte que seul les utilisateurs fournissant un certificat x.509 signé avec celui du serveur et la clé du serveur, pourront y accéder. Il vous faut donc générer un certificat pour le client.
 
-### Génération des certificats PCKS#12
+### Génération des certificats PKCS#12
 
-Nous avons réalisés deux scripts dans le dossier /scripts : **create_cert_client_valid.sh** et **create_cert_client_invalid.sh**. Afin de générer les certificats, il faut avoir en main deux fichiers : le certificat et la clé du serveur.
-Si le serveur est déjà lancé, vous pouvez y accéder via : <https://localhost:4848/certificate> et <https://localhost:4848/key>
-Dans le cas échéant, veuillez vous référer à la section **#Solution de déploiement** afin de le démarrer.
+Afin d'ajouter un certificat client dans un navigateur tel que Firefox, il faut que celui-ci soit au format PKCS#12.
+Ce format de certificat regroupe deux fichier :
 
-Ces deux scripts permettent de générer deux certificats en prenant tout deux un argument : le nom du client.
-> **./create_cert_client_valid.sh ClientName**
->
-> exemple : **./create_cert_client_valid.sh Maxence**
+- Le certificat **clientX-crt.pem**
+- La clé du client **clientN-key.pem**
 
-L’exécution de cette commande va vous générer quatre fichiers :
+Afin de générer ce type de certificat, il faut lancer cette commande, en remplaçant X par le numéro du client :
+> **openssl pkcs12 -export -out client1.p12 -inkey ./clients/client1/client1-key.pem -in ./clients/client1/client1-crt.pem**
 
- 1. **Maxence_key.pem** : clé RSA pour l'utilisateur Maxence
- 2. **Maxence_csr.pem** : certificat de l'utilisateur Maxence, valide 365 jours
- 3. **Maxence_cert.pem** : certificat de l'utilisateur Maxence signé avec la clé et le certificat du serveur
- 4. **Maxence.p12** : certificat au format PCKS#12 regroupant la clé Maxence_key.pem et le certificat signé avec les informations du serveur.
-
-Les trois premiers fichiers ne sont pas à utiliser par l'utilisateur directement, ils servent à créer un certificat valide pour ce serveur en particulier, ici Maxence.p12.
+Il est également possible d'utiliser ce type de certificat avec CURL, il faut cependant préciser le type de certificat envoyé.
 
 ### Via CURL
 
@@ -149,10 +142,14 @@ Sorry, but you need to provide a client certificate to continue.
 
 #### Avec certificat
 
-> curl <https://localhost:4848/authenticate> --insecure --cert certificat.p12 --cert-type p12 -i
+Vous pouvez utiliser les deux fichiers : key et crt
+> curl <https://localhost:4848/authenticate> --insecure --cert ./clients/client1/client1-crt.pem --key ./clients/client1/client1-key.pem -i
+
+Ou bien depuis le fichier .p12 en précisant la nature de celui-ci (PCKS#12) :
+> curl <https://localhost:4848/authenticate> --insecure --cert ./clients/client1/client1.p12 --cert-type p12 -i
 
 ```bash
-$ curl https://localhost:4848/authenticate --insecure -i --cert ./keys/client/yann/yann.p12 --cert-type p12
+$ curl https://localhost:4848/authenticate --insecure -i --cert ./clients/client1/client1-crt.pem --key ./clients/client1/client1-key.pem
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    48  100    48    0     0   1813      0 --:--:-- --:--:-- --:--:--  1920HTTP/1.1 200 OK
@@ -167,7 +164,7 @@ Date: Thu, 06 Jan 2022 21:30:28 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-Hello yann, your certificate was issued by INSA!
+Hello client1, your certificate was issued by ca!
 ```
 
 ### Avec un navigateur
