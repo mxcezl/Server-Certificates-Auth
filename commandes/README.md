@@ -16,7 +16,7 @@
     - [Révocation d'un certificat](#révocation-dun-certificat)
     - [Mise à jour de la liste des certificats révoqués (CRL)](#mise-à-jour-de-la-liste-des-certificats-révoqués-crl)
 
-Ici vous trouverez toutes les commandes que nous avons utilisé pour générer les certificats, aussi bien côté serveur, que côté client.
+Ici vous trouverez toutes les commandes que nous avons utilisé pour générer les certificats, aussi bien côté serveur, que côté client. Mais également les commandes utiles à la création et au maintient des certificats révoqués par le serveur.
 
 La partie sur le serveur est présente uniquement à titre informative et peut être ignorée.
 
