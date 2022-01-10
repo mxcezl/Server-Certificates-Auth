@@ -2,9 +2,9 @@
 default_ca      = CA_default
 
 [ CA_default ]
-serial = ca-serial
-crl = ca-crl.pem
-database = ca-database.txt
+serial = ./ca/ca-serial
+crl = ./ca/ca-crl.pem
+database = ./cert_database/ca-database.txt
 name_opt = CA_default
 cert_opt = CA_default
 default_crl_days = 9999

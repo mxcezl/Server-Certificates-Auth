@@ -51,25 +51,25 @@ Parmi ces clients :
 ### Génération des certificats
 
 > **openssl genrsa -out ./clients/client1/client1-key.pem 4096**
-
+>
 > **openssl genrsa -out ./clients/client2/client2-key.pem 4096**
 
 ### Création d'une paire de demande de signatures de certificats pour les clients
 
 > **openssl req -new -config ./clients/client1/client1.cnf -key ./clients/client1/client1-key.pem -out ./clients/client1/client1-csr.pem**
-
+>
 > **openssl req -new -config ./clients/client2/client2.cnf -key ./clients/client2/client2-key.pem -out ./clients/client2/client2-csr.pem**
 
 ### Signature des certificats clients avec la certificat d'autorité
 
 > **openssl x509 -req -extfile ./clients/client1/client1.cnf -days 999 -passin "pass:password" -in ./clients/client1/client1-csr.pem -CA ./ca/ca-crt.pem -CAkey ./ca/ca-key.pem -CAcreateserial -out ./clients/client1/client1-crt.pem**
-
+>
 > **openssl x509 -req -extfile ./clients/client2/client2.cnf -days 999 -passin "pass:password" -in ./clients/client2/client2-csr.pem -CA ./ca/ca-crt.pem -CAkey ./ca/ca-key.pem -CAcreateserial -out ./clients/client2/client2-crt.pem**
 
 ### Vérification des certificats
 
 > **openssl verify -CAfile ./ca/ca-crt.pem ./clients/client1/client1-crt.pem**
-
+>
 > **openssl verify -CAfile ./ca/ca-crt.pem ./clients/client2/client2-crt.pem**
 
 Vous devriez avoir : **client1-crt.pem: OK**
